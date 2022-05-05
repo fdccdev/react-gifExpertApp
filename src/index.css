@@ -27,6 +27,15 @@ input {
   border-radius: 5px
 }
 
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu a {
+  color: #add500;
+}
+
 /* Estilos css pinteres */
 :root {
   --results-columns: 2;

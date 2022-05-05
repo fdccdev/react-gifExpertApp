@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <h3>Top gifs populares</h3>
-      <ul>
+      <ul className='menu'>
         {TOP_GIFS.map((item) => (
           <Link to={`search/${item}`}>Gifs de {item}</Link>
         ))}
