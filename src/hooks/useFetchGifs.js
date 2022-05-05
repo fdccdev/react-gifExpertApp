@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { getGifs } from "../helpers/getGifs";
+import { getGifs } from "../services/getGifs";
 
-export const useFetchGifs = (category) => {
+export const useFetchGifs = (keyword) => {
   const [state, setstate] = useState({
     data: [],
     loading: true,
   });
 
   useEffect(() => {
-    getGifs(category).then((imgs) =>
+    getGifs(keyword).then((imgs) =>
       setstate({
         data: imgs,
         loading: false,
       })
     );
-  }, [category]);
+  }, [keyword]);
 
   return state;
 };

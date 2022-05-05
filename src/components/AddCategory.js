@@ -1,29 +1,33 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { useLocation } from 'wouter'
 
 export const AddCategory = ({ setCategories }) => {
-  const [inputValue, setinputValue] = useState("");
+  const [location, setLocation] = useLocation()
+  const [inputValue, setinputValue] = useState('')
 
   const handleInput = (e) => {
-    setinputValue(e.target.value);
-  };
+    setinputValue(e.target.value)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()    
+    window.location.pathname.indexOf('search') !== -1 ? setLocation(`${inputValue}`) : setLocation(`search/${inputValue}`) 
+    setLocation(`${inputValue}`)
 
     if (inputValue.trim().length > 2) {
-      setCategories((cats) => [inputValue, ...cats]);
-      setinputValue("");
+      setCategories((cats) => [inputValue, ...cats])
+      setinputValue('')
     }
-  };
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={inputValue} onChange={handleInput} />
+    <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+      <input type="text" value={inputValue} onChange={handleInput} placeholder='Search a gif here...'/>
     </form>
-  );
-};
+  )
+}
 
 AddCategory.propTypes = {
   setCategories: PropTypes.func.isRequired,
-};
+}

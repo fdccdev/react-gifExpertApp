@@ -1,36 +1,78 @@
 html,
 body {
   font-family: Arial, Helvetica, sans-serif;
-  padding: 60px;
+  
   background-color: #333;
   color: white;
 }
 
-input {
-  font-size: 1.3rem;
-  width: 100%;
-  color: #333;
+a:visited {
+  color: #add500;
 }
 
-.card-grid{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.img-home{
+  cursor: pointer;
+}
+
+.logo{
+  text-align: center;
+  margin: 20px 0;
+}
+
+input {
+  font-size: 1.3rem;
+  width: 50%;
+  color: #333;
+  outline: 0;
+  border-radius: 5px
+}
+
+/* Estilos css pinteres */
+:root {
+  --results-columns: 2;
+}
+
+.card-grid {
+  column-count: var(--results-columns);
+  column-gap: .5em;
 }
 
 .card {
-  text-align: center;
-  border: 1px solid gray;
-  border-radius: 6px;
-  margin:5px;
-  overflow: hidden;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  background-color: #333;
+  display: inline-block;
+  width: 100%;
 }
 
-.card p {
-  padding: 5px;  
-  text-align: center;
+@media(min-width: 600px){
+  :root {
+      --results-columns: 3;
+  }
+}
+
+@media(min-width: 800px){
+  :root {
+      --results-columns: 4;
+  }
 }
 
 .card img {
-  max-height: 190px;
+  max-width: 100%;
+}
+/* fin de estilos printeres css */
+
+
+.menu-gif {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0
+}
+
+@media(max-width: 500px){
+  html, body {
+    padding: 0;
+  }
 }
