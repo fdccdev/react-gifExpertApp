@@ -6,14 +6,14 @@ import { GifGridItem } from '../../components/GifGridItem'
 const TOP_GIFS = ['Matrix', 'Argentina', 'Colombia', 'Spain']
 
 export default function Home() {
-  const { data: images, loading } = useFetchGifs('rick')
+  const { data: images } = useFetchGifs('rick and morthy')
 
   return (
     <>
       <h3>Top gifs populares</h3>
       <ul className='menu'>
         {TOP_GIFS.map((item) => (
-          <Link to={`search/${item}`}>Gifs de {item}</Link>
+          <Link key={item} to={`search/${item}`}>Gifs de {item}</Link>
         ))}
       </ul>
       <div className="card-grid">

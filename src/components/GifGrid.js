@@ -8,7 +8,7 @@ export const GifGrid = ({ params }) => {
 
   return (
     <>
-      <h3 className="animate__animated animate__fadeIn">{keyword}</h3>
+      <h3 className="animate__animated animate__fadeIn">{keyword.replace(/%20/g, " ")}</h3>
 
       {loading && <p className="animate__animated animate__flash">Loading</p>}
       <div className="card-grid">

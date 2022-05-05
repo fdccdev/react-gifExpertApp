@@ -16,8 +16,8 @@ export const AddCategory = ({ setCategories }) => {
     setLocation(`${inputValue}`)
 
     if (inputValue.trim().length > 2) {
-      setCategories((cats) => [inputValue, ...cats])
-      setinputValue('')
+      setCategories(inputValue)
+      // setinputValue('')
     }
   }
 
