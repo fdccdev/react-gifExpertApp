@@ -1,8 +1,14 @@
-import React, { useContext } from 'react'
-import StaticContext from '../../context/StaticContext'
+import { GifGridItem } from '../../components/GifGridItem'
+import useGlobalGifs from '../../hooks/useGlobalGifs'
 
 export default function Detail({ params }) {
-  const context = useContext(StaticContext)
-  console.log(context)
-  return <p>Gif con el id {params.id}</p>
+  const { id } = params
+  const gifs = useGlobalGifs()
+  const gif = gifs.find((gif) => gif.id === id)
+  const { title, url } = gif
+  return (
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <GifGridItem title={title} id={id} url={url} />
+    </div>
+  )
 }

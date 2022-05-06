@@ -1,25 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'wouter'
 import { useFetchGifs } from '../../hooks/useFetchGifs'
 import { GifGridItem } from '../../components/GifGridItem'
+import { AddCategory } from '../../components/AddCategory'
+import TrendingSreaches from '../../components/TrendingSreaches'
+
 
 const TOP_GIFS = ['Matrix', 'Argentina', 'Colombia', 'Spain']
 
 export default function Home() {
-  const { data: images } = useFetchGifs()
+  const { gifs } = useFetchGifs()
+  const [categories, setCategories] = useState([])
+  
 
   return (
     <>
-      <h3>Top gifs populares</h3>
-      <ul className='menu'>
-        {TOP_GIFS.map((item) => (
-          <Link key={item} to={`search/${item}`}>Gifs de {item}</Link>
-        ))}
-      </ul>
-      <div className="card-grid">
-        {images?.map((img) => {
-          return <GifGridItem key={img.id} {...img} />
-        })}
+      <AddCategory setCategories={setCategories} />
+      <div>
+        <h3>Categorías populares</h3>
+        <ul className="menu">
+          {TOP_GIFS.map((item) => (
+            <Link key={item} to={`search/${item}`}>
+              {item}
+            </Link>
+          ))}
+          
+        </ul>
+        <h3>Última búsqueda</h3>
+        <div className="card-grid">
+          {gifs?.map((img) => {
+            return <GifGridItem key={img.id} {...img} />
+          })}
+        </div>
+        <TrendingSreaches />
       </div>
     </>
   )

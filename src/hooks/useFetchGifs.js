@@ -1,24 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { getGifs } from '../services/getGifs'
+import GifsContext from '../context/GifsContext'
+
 
 export const useFetchGifs = (keyword = null) => {
-  const [state, setState] = useState({
-    data: [],
-    loading: true,
-  })
-
+  const [loading, setLoading] = useState(false)
+  const {gifs, setGifs} = useContext(GifsContext)
+  
   useEffect(() => {
-
+    setLoading(true)
     const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
 
     getGifs(keywordToUse).then((imgs) => {
-      setState({
-        data: imgs,
-        loading: false,
-      })
+      setGifs(imgs)
       localStorage.setItem('lastKeyword', keyword)
     })
-  }, [keyword])
+  }, [keyword, setGifs])
 
-  return state
+  return {gifs, loading}
 }
