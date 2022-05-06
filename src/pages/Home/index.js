@@ -6,7 +6,7 @@ import { GifGridItem } from '../../components/GifGridItem'
 const TOP_GIFS = ['Matrix', 'Argentina', 'Colombia', 'Spain']
 
 export default function Home() {
-  const { data: images } = useFetchGifs('rick and morthy')
+  const { data: images } = useFetchGifs()
 
   return (
     <>

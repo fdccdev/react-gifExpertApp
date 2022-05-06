@@ -6,6 +6,10 @@ body {
   color: white;
 }
 
+.link{
+  cursor: pointer;
+}
+
 a:visited {
   color: #add500;
 }

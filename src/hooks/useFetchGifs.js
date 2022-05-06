@@ -1,20 +1,24 @@
-import { useState, useEffect } from "react";
-import { getGifs } from "../services/getGifs";
+import { useState, useEffect } from 'react'
+import { getGifs } from '../services/getGifs'
 
-export const useFetchGifs = (keyword) => {
-  const [state, setstate] = useState({
+export const useFetchGifs = (keyword = null) => {
+  const [state, setState] = useState({
     data: [],
     loading: true,
-  });
+  })
 
   useEffect(() => {
-    getGifs(keyword).then((imgs) =>
-      setstate({
+
+    const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
+
+    getGifs(keywordToUse).then((imgs) => {
+      setState({
         data: imgs,
         loading: false,
       })
-    );
-  }, [keyword]);
+      localStorage.setItem('lastKeyword', keyword)
+    })
+  }, [keyword])
 
-  return state;
-};
+  return state
+}
