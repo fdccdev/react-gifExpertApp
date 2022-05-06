@@ -3,7 +3,7 @@ import { Link } from 'wouter'
 import { useFetchGifs } from '../../hooks/useFetchGifs'
 import { GifGridItem } from '../../components/GifGridItem'
 import { AddCategory } from '../../components/AddCategory'
-import TrendingSreaches from '../../components/TrendingSreaches'
+import TrendingSearches from '../../components/TrendingSearches'
 
 
 const TOP_GIFS = ['Matrix', 'Argentina', 'Colombia', 'Spain']
@@ -32,7 +32,7 @@ export default function Home() {
             return <GifGridItem key={img.id} {...img} />
           })}
         </div>
-        <TrendingSreaches />
+        <TrendingSearches />
       </div>
     </>
   )

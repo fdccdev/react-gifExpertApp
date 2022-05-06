@@ -17,13 +17,13 @@ export const AddCategory = ({ setCategories }) => {
 
     if (inputValue.trim().length > 2) {
       setCategories(inputValue)
-      // setinputValue('')
     }
   }
 
   return (
     <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
       <input type="text" value={inputValue} onChange={handleInput} placeholder='Search a gif here...'/>
+      <button>Search</button>
     </form>
   )
 }

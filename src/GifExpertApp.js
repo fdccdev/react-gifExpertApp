@@ -7,18 +7,18 @@ import { Route, Link } from 'wouter'
 import { GifsContextProvider } from './context/GifsContext'
 
 export const GifExpertApp = () => {
-  
-
   return (
-    <StaticContext.Provider value={{msg: 'Esto es con acceso al context con provider', check: true}}>
-      <div className='logo'>
-        <Link to='/'>
-          <img className='img-home' src={process.env.PUBLIC_URL + '/gex-rbg.png'} alt='gif expert' />
+    <StaticContext.Provider
+      value={{ msg: 'Esto es con acceso al context con provider', check: true }}
+    >
+      <div className="logo">
+        <Link to="/">
+          <h2>Gifact</h2>
         </Link>
       </div>
-      <h2 style={{ textAlign: 'center' }}>Gif Expert</h2>      
+
       <GifsContextProvider>
-        <Route path='/' component={Home} />
+        <Route path="/" component={Home} />
         <Route path="/search/:keyword" component={GifGrid} />
         <Route path="/gif/:id" component={Detail} />
       </GifsContextProvider>

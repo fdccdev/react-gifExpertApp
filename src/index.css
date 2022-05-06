@@ -9,10 +9,20 @@ body {
 .link{
   cursor: pointer;
   text-decoration: none;
+  color: white;
+}
+
+h2{
+  text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  cursor: pointer;
+  font-size: 64px;
 }
 
 a{
   text-decoration: none;
+  cursor: pointer;
+  color: white;
 }
 
 a:visited {
@@ -29,11 +39,28 @@ a:visited {
 }
 
 input {
-  font-size: 1.3rem;
   width: 50%;
+  height: 25px;
+  padding-left: 15px;
   color: #333;
   outline: 0;
-  border-radius: 5px
+  border:0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+button {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 85px;
+  height: 27px;
+  border: solid 1px #72bd2e;
+  background: #72bd2e;
+  outline: 0;
+  color: white;
+  line-height: 0;
+  vertical-align: 0.5px;
+  cursor: pointer;
 }
 
 .menu {
@@ -51,6 +78,7 @@ input {
 .card-grid {
   column-count: var(--results-columns);
   column-gap: .5em;
+  min-height: 100vh;
 }
 
 .card {
@@ -78,7 +106,20 @@ input {
   max-width: 100%;
 }
 /* fin de estilos printeres css */
+.trends {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.trend-items {
+    padding: 0px 8px;
+    border: solid 1px #333;
+    border-radius: 15px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background: #333;
+    color: white;
+}
 
 .menu-gif {
   display: flex;
